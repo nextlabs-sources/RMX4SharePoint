@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="012d9ced-4fea-4411-bc62-212040f0197d" solutionId="012d9ced-4fea-4411-bc62-212040f0197d" resetWebServer="false" name="NextLabs.RightsManager" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="SkyDrmRestHelp.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\Depend\SkyDrmRestHelp.dll" />
+    <customAssembly location="QueryCloudAZSDK4RMX.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\Depend\QueryCloudAZSDK4RMX.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="380007a9-46bc-4569-9dd2-a16cc6b22800" />
+    <featureReference itemId="0f04b1c9-a061-4c68-9a1d-e906fe88842a" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="7dc3c333-5488-421a-bb11-fd235ad2df9f" />
+    <projectItemReference itemId="028f7f7d-0d88-458a-a2b7-15c253dd1c97" />
+  </projectItems>
+</package>

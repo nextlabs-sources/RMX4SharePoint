@@ -1,0 +1,208 @@
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <CustomAction
+        Id="SPESiteMenus.SiteSettings"
+        GroupId="SiteCollectionAdmin"
+        Location="Microsoft.SharePoint.SiteSettings"
+        Sequence="106"
+	      RequireSiteAdministrator="TRUE"
+        Title="NextLabs Rights Management">
+    <UrlAction Url="~Site/_layouts/NextLabs.RightsManager/RmsSiteSetting.aspx"/>
+  </CustomAction>
+
+  <CustomAction Id="{35DF4426-4237-4212-8EBD-CAFF4A921E4B}"
+  GroupId="Permissions"
+  Location="Microsoft.SharePoint.ListEdit"
+  Sequence="300"
+  Title="NextLabs Rights Management">
+    <UrlAction Url="~Site/_layouts/NextLabs.RightsManager/RmsLibSetting.aspx?List={ListId}" />
+  </CustomAction>
+
+  <CustomAction Id="NextLabs.Manage.EncryptItem"
+               GroupId="Ribbon.Documents.Manage"
+               Location="CommandUI.Ribbon"
+               Sequence="301"
+               Title="NextLabs Rights Protection">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Documents.Manage.Controls._children">
+          <Button Id="Ribbon.Documents.Manage.RMS"
+          Command="DocumentManageRMS"
+          LabelText="NextLabs Rights Protection"
+		      ToolTipTitle="NextLabs Rights Protection"
+		      ToolTipDescription="NextLabs Rights Protection"
+          CommandType="OptionSelection"
+          TemplateAlias="o1"
+          Image32by32="/_layouts/15/images/NextLabs.RightsManager/NextLabsRightsProtect.png" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler
+        Command="DocumentManageRMS"
+        CommandAction="javascript:
+            var ListId =getSelectedListId();
+            var ItemId = getItemIds();
+             var url = '{SiteUrl}/_layouts/15/NextLabs.RightsManager/NxlProtection.aspx?ItemId='+ItemId+'&amp;ListId='+ListId+'';
+             window.open(url);"
+        EnabledScript="javascript:
+         checkRPIsEnabled()"
+         />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+
+  <CustomAction Id="NextLabs.Manage.SecureView"
+                Sequence="302"
+                Location="CommandUI.Ribbon"
+                Title="NextLabs Secure View">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Documents.Manage.Controls._children">
+          <Button Id="Ribbon.Documents.Manage.SecureView"
+					Command="SecureView"
+					LabelText="NextLabs Secure View"
+					CommandType="OptionSelection"
+					TemplateAlias="o1"
+					Image32by32="/_layouts/15/images/NextLabs.RightsManager/NextLabsSecureViewer.png" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler
+					Command="SecureView"
+					CommandAction="javascript:
+            var ListId =getSelectedListId();
+            var ItemId = getItemIds();
+             var url = '{SiteUrl}/_layouts/15/NextLabs.RightsManager/NxlSecureView.aspx?ItemId='+ItemId+'&amp;ListId='+ListId+'';
+             window.open(url);"
+          EnabledScript="javascript:
+         checkSVIsEnabled()"
+				 />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+
+
+
+  <CustomAction Id="NextLabs.Manage.EncryptAttachment"
+                 Location="CommandUI.Ribbon"
+                 Title="NextLabs Rights Protection">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Manage.Controls._children">
+          <Button Id="Ribbon.ListItem.Manage.Encrypt"
+          Command="ListItemRMS"
+          LabelText="NextLabs Rights Protection"
+		      ToolTipTitle="NextLabs Rights Protection"
+		      ToolTipDescription="NextLabs Rights Protection"
+          CommandType="OptionSelection"
+          TemplateAlias="o1"
+          Image32by32="/_layouts/15/images/NextLabs.RightsManager/NextLabsRightsProtect.png" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler
+        Command="ListItemRMS"
+        CommandAction="javascript:
+            var ListId =getSelectedListId();
+            var ItemId = getItemIds();
+             var url = '{SiteUrl}/_layouts/15/NextLabs.RightsManager/NxlProtection.aspx?ItemId='+ItemId+'&amp;ListId='+ListId+'';
+             window.open(url);"
+        EnabledScript="javascript:
+         checkRPIsEnabled()"
+         />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+
+
+  <CustomAction Id="NextLabs.Calendar.Manage.RMS"
+               ScriptSrc=""
+               Location="CommandUI.Ribbon"
+               Title="NextLabs Rights Protection">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Calendar.Events.Manage.Controls._children">
+          <Button Id="Ribbon.Calendar.Events.Manage.RMS"
+				  Command="EventRMS"
+				  LabelText="NextLabs Rights Protection"
+				  ToolTipTitle="NextLabs Rights Protection"
+		      ToolTipDescription="NextLabs Rights Protection"
+				  CommandType="OptionSelection"
+				  TemplateAlias="o1"
+				  Image32by32="/_layouts/15/images/NextLabs.RightsManager/NextLabsRightsProtect.png" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler
+        Command="EventRMS"
+        CommandAction="javascript:
+            var ListId =getSelectedListId();
+            var ItemId = getItemIds();
+             var url = '{SiteUrl}/_layouts/15/NextLabs.RightsManager/NxlProtection.aspx?ItemId='+ItemId+'&amp;ListId='+ListId+'';
+             window.open(url);"
+        EnabledScript="javascript:
+         checkRPIsEnabled()"
+				 />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+
+  <CustomAction Id="NextLabs.Tasks.Manage.RMS"
+                 ScriptSrc=""
+                 Location="CommandUI.Ribbon"
+                 Title="NextLabs Rights Protection">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Tasks.Manage.Controls._children">
+          <Button Id="Ribbon.Tasks.Manage.TasksRMS"
+				  Command="TasksManageRMS"
+				  LabelText="NextLabs Rights Protection"
+				  ToolTipTitle="NextLabs Rights Protection"
+				  ToolTipDescription="NextLabs Rights Protection"
+				  CommandType="OptionSelection"
+				  TemplateAlias="o1"
+				  Image32by32="/_layouts/15/images/NextLabs.RightsManager/NextLabsRightsProtect.png" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler
+        Command="TasksManageRMS"
+        CommandAction="javascript:
+            var ListId =getSelectedListId();
+            var ItemId = getItemIds();
+             var url = '{SiteUrl}/_layouts/15/NextLabs.RightsManager/NxlProtection.aspx?ItemId='+ItemId+'&amp;ListId='+ListId+'';
+             window.open(url);"
+        EnabledScript="javascript:
+         checkRPIsEnabled()"
+				 />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+
+  <CustomAction
+    Id="NXL Protect"
+    RegistrationType="ContentType"
+    RegistrationId="0x"
+    ImageUrl="/_layouts/1033/Images/RTEDCELL.GIF"
+    Location="EditControlBlock"
+    Sequence="301"
+    Title="NextLabs Rights Protection">
+    <UrlAction
+      Url="~site/_layouts/15/NextLabs.RightsManager/NxlProtection.aspx?ItemId={ItemId}&amp;ListId={ListId}"/>
+  </CustomAction>
+
+  <CustomAction
+    Id="NXL Security View"
+    RegistrationType="FileType"
+    RegistrationId="nxl"
+    ImageUrl="/_layouts/1033/Images/RTEDCELL.GIF"
+    Location="EditControlBlock"
+    Sequence="302"
+    Title="NextLabs Secure View" >
+    <UrlAction
+      Url="~site/_layouts/15/NextLabs.RightsManager/NxlSecureView.aspx?ItemId={ItemId}&amp;ListId={ListId}"/>
+  </CustomAction>
+
+  <CustomAction Id="Ribbon.Library.Actions.Scripts"
+      Location ="ScriptLink"
+      ScriptSrc="/_layouts/15/NextLabs.RightsManager/Encrypt.public.js" />
+</Elements>

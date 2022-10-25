@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{405EFC92-41E2-48AB-8DE8-D0F68BFDD206}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NextLabs.RightsManager</RootNamespace>
+    <AssemblyName>NextLabs.RightsManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <IncludeAssemblyInPackage>True</IncludeAssemblyInPackage>
+    <PreDeploymentCommand>
+    </PreDeploymentCommand>
+    <PostDeploymentCommand>
+    </PostDeploymentCommand>
+    <TargetFrameworkProfile />
+    <AssemblyDeploymentTarget>GlobalAssemblyCache</AssemblyDeploymentTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SP2013Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>SP2013Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SP2013</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SP2013Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>SP2013Release\</OutputPath>
+    <DefineConstants>TRACE;SP2013</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>RightsManager.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Server">
+      <HintPath>$(NLEXTERNALDIR)\microsoft\sharepoint\sp2013\Microsoft.Office.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.UserProfiles">
+      <HintPath>$(NLEXTERNALDIR)\microsoft\sharepoint\sp2013\Microsoft.Office.Server.UserProfiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint">
+      <HintPath>$(NLEXTERNALDIR)\microsoft\sharepoint\sp2013\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="QueryCloudAZSDK4RMX">
+      <HintPath>..\Depend\QueryCloudAZSDK4RMX.dll</HintPath>
+    </Reference>
+    <Reference Include="SDKWrapper4RMXLib">
+      <HintPath>..\depend\SDKWrapper4RMXLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SkyDrmRestHelp">
+      <HintPath>..\Depend\SkyDrmRestHelp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CloudAZQuery.cs" />
+    <Compile Include="DelayDeleteListItemMgr.cs" />
+    <Compile Include="EventReceiversModule.cs" />
+    <Compile Include="FailedItemsList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Features\NextLabs.RightsManager.RMS\NextLabs.RightsManager.EventReceiver.cs">
+      <DependentUpon>NextLabs.RightsManager.RMS.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="EventHandler.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="NxlProtection.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NxlSecureView.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RmsController.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RmsGeneralSetting.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RmsLibSetting.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RmsSiteSetting.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RmxModule.cs" />
+    <Compile Include="SkyDrmLogin.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkyDrmSessionMgr.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Administration\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f15ae36c-d7c7-4ef4-83cd-225764dd5356}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\NextLabs.RightsManager.Administration\NextLabs.RightsManager.Administration.feature">
+      <FeatureId>{380007a9-46bc-4569-9dd2-a16cc6b22800}</FeatureId>
+    </None>
+    <None Include="Features\NextLabs.RightsManager.RMS\NextLabs.RightsManager.RMS.feature">
+      <FeatureId>{0f04b1c9-a061-4c68-9a1d-e906fe88842a}</FeatureId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7dc3c333-5488-421a-bb11-fd235ad2df9f}</SharePointProjectItemId>
+    </None>
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{028f7f7d-0d88-458a-a2b7-15c253dd1c97}</SharePointProjectItemId>
+    </None>
+    <None Include="RightsManager.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{012d9ced-4fea-4411-bc62-212040f0197d}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="RMS\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8782795e-2d31-4347-8352-49ad095fc77c}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administration\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\NextLabs.RightsManager.Administration\NextLabs.RightsManager.Administration.Template.xml">
+      <DependentUpon>NextLabs.RightsManager.Administration.feature</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\NextLabs.RightsManager.RMS\NextLabs.RightsManager.RMS.Template.xml">
+      <DependentUpon>NextLabs.RightsManager.RMS.feature</DependentUpon>
+    </Content>
+    <Content Include="Images\NextLabs.RightsManager\Active.gif" />
+    <Content Include="Images\NextLabs.RightsManager\ajax-loader.gif" />
+    <Content Include="Images\NextLabs.RightsManager\Deactive.gif" />
+    <Content Include="Images\NextLabs.RightsManager\NextLabsRightsProtect.png" />
+    <Content Include="Images\NextLabs.RightsManager\NextLabsSecureViewer.png" />
+    <Content Include="Images\NextLabs.RightsManager\nxl.png" />
+    <Content Include="Images\NextLabs.RightsManager\nxlspelogo.jpg" />
+    <Content Include="Images\NextLabs.RightsManager\RMX_onprem.png" />
+    <Content Include="Layouts\NextLabs.RightsManager\jquery.artDialog.min.js" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\celog.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\celog2.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\libtiff.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\nl_sysenc_lib.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\pdflib.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\PoDoFoLib.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\resattrlib.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\resattrmgr.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\SDKWrapper4RMX.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\tag_office2k7.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\bin64\zlibwapi.dll" />
+    <Content Include="Layouts\NextLabs.RightsManager\Encrypt.public.js" />
+    <Content Include="Layouts\NextLabs.RightsManager\FailedItemsList.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\bcpkix-jdk15on-1.57.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\bcprov-jdk15on-1.57.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\common-framework.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\commons-cli-1.2.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\commons-codec-1.10.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\commons-lang3-3.5.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\crypt.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\gson-2.3.1.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\log4j-api-2.10.0.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\log4j-core-2.10.0.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\rmjavasdk-ng.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jars\shared.jar" />
+    <Content Include="Layouts\NextLabs.RightsManager\jquery-1.10.2.js" />
+    <Content Include="Layouts\NextLabs.RightsManager\jquery.ztree.all.min.js" />
+    <Content Include="Layouts\NextLabs.RightsManager\NxlProtection.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\NxlProtectionHeader.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\NxlSecureView.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsController.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsControllerHeader.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsGeneralSetting.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsGeneralSettingHeader.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsLibSetting.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsLibSettingHeader.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsSiteSetting.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\RmsSiteSettingHeader.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\SkyDrmLogin.aspx" />
+    <Content Include="Layouts\NextLabs.RightsManager\TreeUtils.js" />
+    <Content Include="Layouts\NextLabs.RightsManager\UITools.js" />
+    <Content Include="Layouts\NextLabs.RightsManager\simpleArtDialog.css" />
+    <Content Include="Layouts\NextLabs.RightsManager\ztreeImg\gb_tip_layer.png" />
+    <Content Include="Layouts\NextLabs.RightsManager\ztreeImg\gb_tip_layer_ie6.png" />
+    <Content Include="Layouts\NextLabs.RightsManager\ztreeImg\line_conn.gif" />
+    <Content Include="Layouts\NextLabs.RightsManager\ztreeImg\loading.gif" />
+    <Content Include="Layouts\NextLabs.RightsManager\ztreeImg\zTreeStandard.gif" />
+    <Content Include="Layouts\NextLabs.RightsManager\ztreeImg\zTreeStandard.png" />
+    <Content Include="Layouts\NextLabs.RightsManager\zTreeStyle.css" />
+    <Content Include="RMS\RMS.xml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="false" />
+  <PropertyGroup>
+    <BuildDependsOn>$(BuildDependsOn);CreatePackage</BuildDependsOn>
+  </PropertyGroup>
+</Project>

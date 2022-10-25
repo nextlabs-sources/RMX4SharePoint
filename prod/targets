@@ -1,0 +1,2 @@
+TARGETS = prod/RMXForSP/NextLabs.RightsManager \
+          prod/RMXForSP/NextLabs.RightsManager.Wizard

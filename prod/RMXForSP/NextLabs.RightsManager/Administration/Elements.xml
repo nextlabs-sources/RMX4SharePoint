@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomActionGroup
+    Id="{FBDDD443-0759-498D-901D-B4165D6E34C8}"
+    Location="Microsoft.SharePoint.Administration.Default"
+    Sequence="200"
+    Title="NextLabs Rights Management"
+    Description="NextLabs Rights Management Home Page."
+    ImageUrl="/_layouts/15/images/NextLabs.RightsManager/RMX_onprem.png">
+  </CustomActionGroup>
+  
+  <CustomAction
+    Id="{9995196E-9A32-40C8-BCFC-DE8E6F0EED5C}"
+    GroupId="{FBDDD443-0759-498D-901D-B4165D6E34C8}"
+    Location="Microsoft.SharePoint.Administration.Default"
+    Sequence="300"
+    Title="Activation"
+    Description="Administration of NextLabs Rights Management">
+      <UrlAction Url="~Site/_layouts/NextLabs.RightsManager/RmsController.aspx"/>
+  </CustomAction>
+
+  <CustomAction
+  Id="{9FFBFAD5-2114-4106-915A-30827F8C601A}"
+  GroupId="{FBDDD443-0759-498D-901D-B4165D6E34C8}"
+  Location="Microsoft.SharePoint.Administration.Default"
+  Sequence="400"
+  Title="Configuration"
+  Description="Administration of NextLabs Rights Management">
+    <UrlAction Url="~Site/_layouts/NextLabs.RightsManager/RmsGeneralSetting.aspx"/>
+  </CustomAction>
+</Elements>
